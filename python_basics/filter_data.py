@@ -1,4 +1,5 @@
-from concurrent.futures.thread import _worker
+from cgi import print_directory
+from re import L
 
 
 DATA = [
@@ -76,7 +77,47 @@ DATA = [
 
 def run():
 
+    # Método list comprehensions
     all_python_devs = [worker["name"] for worker in DATA if worker["language"] == "python"]
+
+
+    #Método Filter y map
+    all_python_devs = list(filter(lambda worker: worker["language"] == "python", DATA))
+    all_python_devs = list(map(lambda worker: worker["name"], all_python_devs))
+    # print(all_python_devs)
+
+
+
+
+    # Método list comprehensions
+    all_platzi_workers = [worker["name"] for worker in DATA if worker["organization"] == "Platzi"]
+
+
+    #Metodo filter y map:
+    all_platzi_workers = list(filter(lambda worker: worker["organization"] == "Platzi", DATA))
+    all_platzi_workers = list(map(lambda worker: worker["name"], all_platzi_workers))
+    # print(all_platzi_workers)
+
+
+    #Método filter y map:
+    adults = list(filter(lambda worker: worker["age"] > 18 ,DATA))
+    adults = list(map(lambda worker: worker["name"], adults))
+
+
+    #Metodo list comprehensions:
+    adults = [worker["name"] for worker in DATA if worker["age"] > 18]
+    # print(adults)
+
+
+    #Usando metodo map:
+    old_people = list(map(lambda worker: worker | {"old": worker["age"] > 50}, DATA))
+
+
+    #Usando el metodo list comprehensions:
+    old_people = [worker | {"old": "Estás viejo"} for worker in DATA if worker["age"] > 50]
+    print(old_people)
+
+
 
 
 
