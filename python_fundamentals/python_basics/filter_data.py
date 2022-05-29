@@ -1,6 +1,3 @@
-from cgi import print_directory
-from re import L
-
 
 DATA = [
     {
@@ -96,7 +93,7 @@ def run():
     #Metodo filter y map:
     all_platzi_workers = list(filter(lambda worker: worker["organization"] == "Platzi", DATA))
     all_platzi_workers = list(map(lambda worker: worker["name"], all_platzi_workers))
-    # print(all_platzi_workers)
+    # print(all_platzi_workers) 
 
 
     #Método filter y map:

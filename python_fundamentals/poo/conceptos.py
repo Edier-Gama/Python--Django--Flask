@@ -30,8 +30,14 @@ class personaje:
     
     def esta_vivo(self):
         
-        return self.vida > 0          
+        return self.vida > 0
+    
+    def morir(self):
+        
+        self.vida = 0
+        print(self.nombre, 'ha muerto')          
             
             
-mi_personaje = personaje("Luisito Comunica", 200, 344, 888, 0)
-print(mi_personaje.esta_vivo())
+mi_personaje = personaje("Luisito Comunica", 200, 344, 888, 100)
+mi_personaje.morir()
+mi_personaje.atributos()
